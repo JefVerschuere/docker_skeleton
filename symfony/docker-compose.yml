@@ -1,0 +1,21 @@
+services:
+  ## Disable the services you don't need (most of the information on these is fount in data-bases.yml
+  ## Only choose one service at a time
+  ## If you would need for example a mongo & a mysql database you will need to copy the database element and create a new element with the mongo and the rest commented
+  database:
+    extends:
+      file: data-bases.yml
+      # service: database_mysql
+      service: database_mongo
+      # service: database_postgres
+  php:
+    container_name: php
+    build:
+      context: ./php
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./app/:/var/www/app
+    ## If your application requires no database you can remove the depends_on element
+    depends_on:
+      - database

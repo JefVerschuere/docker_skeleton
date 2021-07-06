@@ -1,0 +1,31 @@
+version : '3.8'
+
+services:
+  ## this wil create a database for the project
+  database_mysql:
+    container_name: database
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: symfony_docker
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: symfony
+    ports:
+      - '4306:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  ## this wil create a mongoDB database for the project
+  database_mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  database_postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
