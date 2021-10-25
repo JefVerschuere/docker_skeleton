@@ -1,13 +1,14 @@
 {
-    "name": "nodejs_docker",
-    "version": "1.0.0",
-    "description": "Node container",
-    "author": "First Last <first.last@example.com>",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-    "dependencies": {
-      "express": "^4.16.1"
-    }
+  "name": "nodejs_docker",
+  "version": "1.0.0",
+  "description": "Node container",
+  "author": "First Last <first.last@example.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "nodemon": "^2.0.14"
   }
+}
